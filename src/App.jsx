@@ -5,7 +5,7 @@ import CornerParticles from "./components/CornerParticles";
 
 const N = 4000;
 
-const MORPH_TEXTS = ["CAIXA PRETA", "VELOCIDADE", "COMPREENSAO", "IA"];
+const MORPH_TEXTS = ["CAIXA PRETA", "VELOCIDADE", "COMPREENSÃO", "IA"];
 const MORPH_INTERVAL = 4500;
 const MORPH_HOLD = 2000;
 
@@ -477,12 +477,10 @@ export default function App() {
               animation: mounted ? "heroUp 0.7s 0.6s forwards" : "none",
             }}
           >
-            O codigo cresce
-            <br />
-            mais rapido que a
+            Tudo acelera.
             <br />
             <em style={{ fontStyle: "normal", color: "rgba(130,165,255,0.9)" }}>
-              capacidade de absorver
+              A compreensão não acompanha.
             </em>
           </h1>
 
@@ -491,18 +489,18 @@ export default function App() {
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               fontSize: "clamp(12px, 1.2vw, 14px)",
               fontWeight: 300,
-              color: "rgba(255,255,255,0.32)",
+              color: "rgba(255,255,255,0.42)",
               lineHeight: 1.8,
               marginBottom: "32px",
               opacity: 0,
               animation: mounted ? "heroUp 0.7s 0.8s forwards" : "none",
             }}
           >
-            Quando a automacao avanca sem estrutura,
+            Quando a automação avança sem estrutura,
             <br />
             o sistema vira caixa preta — e a equipe
             <br />
-            perde o controle do que esta construindo.
+            perde o controle do que está construindo.
           </p>
 
           <div
@@ -602,7 +600,7 @@ export default function App() {
                   letterSpacing: "0.5px",
                 }}
               >
-                O negocio e o codigo crescem mais rapido que a capacidade de absorver
+                Tudo acelera. A compreensão não acompanha.
               </p>
               <button className="title-btn" onClick={goToMap}>
                 Explorar o Mapa
@@ -686,7 +684,7 @@ export default function App() {
           pointerEvents: "none",
         }}
       >
-        VELOCIDADE VS COMPREENSAO · 2025
+        VELOCIDADE VS COMPREENSÃO · 2025
       </div>
       <div
         style={{
@@ -702,7 +700,7 @@ export default function App() {
           pointerEvents: "none",
         }}
       >
-        PARTICULAS · 4.000
+        PARTÍCULAS · 4.000
       </div>
     </div>
   );

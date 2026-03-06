@@ -395,7 +395,7 @@ export default function MapaRisco() {
             LENTO / MANUAL
           </text>
           <text x={W - PAD + 32} y={H / 2} textAnchor="middle" fontSize="14" fill={CYAN} opacity={0.55} fontFamily="monospace" letterSpacing="3" transform={`rotate(90,${W - PAD + 32},${H / 2})`}>
-            AUTOMATIZADO / RAPIDO
+            AUTOMATIZADO / RÁPIDO
           </text>
 
           {/* Quadrant labels — brighter base, even brighter on hover */}
