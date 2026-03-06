@@ -368,6 +368,34 @@ export default function App() {
     }, 700);
   }, []);
 
+  // Scroll navigation between phases
+  useEffect(() => {
+    let cooldown = false;
+    const COOLDOWN_MS = 1200;
+    const THRESHOLD = 40;
+
+    const handleWheel = (e) => {
+      if (cooldown) return;
+      const delta = e.deltaY;
+      if (Math.abs(delta) < THRESHOLD) return;
+
+      const p = stateRef.current.phase;
+      if (delta > 0) {
+        // scroll down → next
+        if (p === "hero") { cooldown = true; goToTitle(); }
+        else if (p === "title") { cooldown = true; goToMap(); }
+      } else {
+        // scroll up → previous
+        if (p === "map") { cooldown = true; backToTitle(); }
+        else if (p === "title") { cooldown = true; backToHero(); }
+      }
+      if (cooldown) setTimeout(() => { cooldown = false; }, COOLDOWN_MS);
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [goToTitle, goToMap, backToTitle, backToHero]);
+
   return (
     <div style={{ position: "relative", minHeight: "100vh", background: "#000" }}>
       <style>{`
