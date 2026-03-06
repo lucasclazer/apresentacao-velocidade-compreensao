@@ -13,7 +13,7 @@ export const P = {
   textGhost: "rgba(255,255,255,0.06)",
 
   // Hero
-  subtitle: "rgba(167,139,250,0.85)",   // purple com alta opacidade
+  subtitle: "#b794f6",                   // purple vivo, sem opacidade
   heroEmphasis: "#00e5a0",              // cyan no destaque
   typedText: "rgba(0,229,160,0.75)",    // cyan suave
   typedCursor: "rgba(0,229,160,0.85)",  // cyan cursor

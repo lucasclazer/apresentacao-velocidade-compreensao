@@ -607,9 +607,8 @@ export default function MapaRisco() {
             position: "absolute",
             top: "12px",
             right: "12px",
-            display: "flex",
-            gap: "18px",
             display: "none",
+            gap: "18px",
             opacity: mounted ? 0.85 : 0,
             transition: "opacity 1s 0.5s ease",
           }}
