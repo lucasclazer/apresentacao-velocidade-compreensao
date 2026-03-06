@@ -1,21 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ENTITIES } from "../data/entities";
+import { P } from "../palette";
 
-const PALETTE = {
-  PERIGO: "#ff4466",
-  ALERTA: "#ff8844",
-  RISCO: "#eebb44",
-  NEUTRO: "#a78bfa",
-  IDEAL: "#00e5a0",
-};
-
-const CYAN = "#00e5a0";
-const PURPLE_LIGHT = "#a78bfa";
-const PURPLE_MID = "#7c3aed";
-
-function getColor(tag) {
-  return PALETTE[tag] || CYAN;
-}
 
 function getTagConnections() {
   const groups = {};
@@ -36,12 +22,10 @@ function getTagConnections() {
 
 function TypedText({ text, speed = 18 }) {
   const [displayed, setDisplayed] = useState("");
-  const prevText = useRef("");
 
   useEffect(() => {
-    if (text === prevText.current) return;
-    prevText.current = text;
     setDisplayed("");
+    if (!text) return;
     let i = 0;
     const interval = setInterval(() => {
       i++;
@@ -307,18 +291,18 @@ export default function MapaRisco() {
               </feMerge>
             </filter>
             <linearGradient id="gridGradV" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={CYAN} stopOpacity="0.12" />
-              <stop offset="50%" stopColor={PURPLE_MID} stopOpacity="0.06" />
+              <stop offset="0%" stopColor={P.accent} stopOpacity="0.12" />
+              <stop offset="50%" stopColor={P.purple} stopOpacity="0.06" />
               <stop offset="100%" stopColor="#ff4466" stopOpacity="0.08" />
             </linearGradient>
             <linearGradient id="gridGradH" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor={PURPLE_LIGHT} stopOpacity="0.06" />
-              <stop offset="50%" stopColor={PURPLE_MID} stopOpacity="0.04" />
-              <stop offset="100%" stopColor={CYAN} stopOpacity="0.08" />
+              <stop offset="0%" stopColor={P.highlight} stopOpacity="0.06" />
+              <stop offset="50%" stopColor={P.purple} stopOpacity="0.04" />
+              <stop offset="100%" stopColor={P.accent} stopOpacity="0.08" />
             </linearGradient>
             <linearGradient id="borderGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor={CYAN} stopOpacity="0.2" />
-              <stop offset="50%" stopColor={PURPLE_MID} stopOpacity="0.1" />
+              <stop offset="0%" stopColor={P.accent} stopOpacity="0.2" />
+              <stop offset="50%" stopColor={P.purple} stopOpacity="0.1" />
               <stop offset="100%" stopColor="#ff4466" stopOpacity="0.15" />
             </linearGradient>
           </defs>
@@ -358,14 +342,14 @@ export default function MapaRisco() {
           <rect
             x={PAD} y={PAD}
             width={midX - PAD} height={midY - PAD}
-            fill={PURPLE_MID} rx="4"
+            fill={P.purple} rx="4"
             opacity={hoveredQuad === "tl" ? 0.06 : 0.015}
             style={{ transition: "opacity 0.5s ease", pointerEvents: "none" }}
           />
           <rect
             x={midX} y={PAD}
             width={W - PAD - midX} height={midY - PAD}
-            fill={CYAN} rx="4"
+            fill={P.accent} rx="4"
             opacity={hoveredQuad === "tr" ? 0.07 : 0.02}
             style={{ transition: "opacity 0.5s ease", pointerEvents: "none" }}
           />
@@ -385,26 +369,26 @@ export default function MapaRisco() {
           />
 
           {/* Axis labels — more contrast */}
-          <text x={W / 2} y={PAD - 24} textAnchor="middle" fontSize="15" fill={CYAN} opacity={0.7} fontFamily="monospace" letterSpacing="5">
+          <text x={W / 2} y={PAD - 24} textAnchor="middle" fontSize="15" fill={P.accent} opacity={0.7} fontFamily="monospace" letterSpacing="5">
             ALTA COMPREENSÃO
           </text>
           <text x={W / 2} y={H - PAD + 38} textAnchor="middle" fontSize="15" fill="#ff4466" opacity={0.6} fontFamily="monospace" letterSpacing="5">
             CAIXA PRETA
           </text>
-          <text x={PAD - 32} y={H / 2} textAnchor="middle" fontSize="14" fill={PURPLE_LIGHT} opacity={0.55} fontFamily="monospace" letterSpacing="3" transform={`rotate(-90,${PAD - 32},${H / 2})`}>
+          <text x={PAD - 32} y={H / 2} textAnchor="middle" fontSize="14" fill={P.highlight} opacity={0.55} fontFamily="monospace" letterSpacing="3" transform={`rotate(-90,${PAD - 32},${H / 2})`}>
             LENTO / MANUAL
           </text>
-          <text x={W - PAD + 32} y={H / 2} textAnchor="middle" fontSize="14" fill={CYAN} opacity={0.55} fontFamily="monospace" letterSpacing="3" transform={`rotate(90,${W - PAD + 32},${H / 2})`}>
+          <text x={W - PAD + 32} y={H / 2} textAnchor="middle" fontSize="14" fill={P.accent} opacity={0.55} fontFamily="monospace" letterSpacing="3" transform={`rotate(90,${W - PAD + 32},${H / 2})`}>
             AUTOMATIZADO / RÁPIDO
           </text>
 
           {/* Quadrant labels — brighter base, even brighter on hover */}
-          <text x={toX(-0.5)} y={toY(0.6)} textAnchor="middle" fontSize="14" fill={PURPLE_LIGHT}
+          <text x={toX(-0.5)} y={toY(0.6)} textAnchor="middle" fontSize="14" fill={P.highlight}
             opacity={hoveredQuad === "tl" ? 0.55 : 0.25} fontFamily="monospace" letterSpacing="2"
             style={{ transition: "opacity 0.5s ease", pointerEvents: "none" }}>
             Seguro, mas lento
           </text>
-          <text x={toX(0.5)} y={toY(0.6)} textAnchor="middle" fontSize="14" fill={CYAN}
+          <text x={toX(0.5)} y={toY(0.6)} textAnchor="middle" fontSize="14" fill={P.accent}
             opacity={hoveredQuad === "tr" ? 0.6 : 0.3} fontFamily="monospace" letterSpacing="2"
             style={{ transition: "opacity 0.5s ease", pointerEvents: "none" }}>
             Zona ideal
@@ -430,7 +414,7 @@ export default function MapaRisco() {
                 key={`conn-${i}`}
                 x1={toX(a.x) + da.dx} y1={toY(a.y) + da.dy}
                 x2={toX(b.x) + db.dx} y2={toY(b.y) + db.dy}
-                stroke={getColor(tag)}
+                stroke={P.tags[tag]}
                 strokeWidth={isActiveTag ? 1 : 0.4}
                 opacity={isActiveTag ? 0.25 : 0.04}
                 strokeDasharray="4,6"
@@ -446,7 +430,7 @@ export default function MapaRisco() {
             const isActive = active?.id === e.id;
             const isSameTag = active && active.tag === e.tag;
             const dimmed = active && !isActive && !isSameTag;
-            const color = getColor(e.tag);
+            const color = P.tags[e.tag];
 
             const ringR = 22 + (e.risk / 100) * 18;
             const drag = dragOffsets[e.id] || { dx: 0, dy: 0 };
@@ -522,7 +506,7 @@ export default function MapaRisco() {
           })}
 
           {/* Center crosshair */}
-          <circle cx={toX(0)} cy={toY(0)} r={2} fill={PURPLE_MID} opacity={0.2} />
+          <circle cx={toX(0)} cy={toY(0)} r={2} fill={P.purple} opacity={0.2} />
         </svg>
 
         {/* Overlay info panel — bottom-left */}
@@ -537,7 +521,7 @@ export default function MapaRisco() {
               maxWidth: "580px",
               background: "rgba(8,4,24,0.9)",
               backdropFilter: "blur(28px)",
-              border: `1px solid ${getColor(active.tag)}30`,
+              border: `1px solid ${P.tags[active.tag]}30`,
               borderRadius: "18px",
               padding: "28px 32px",
               pointerEvents: "none",
@@ -549,23 +533,23 @@ export default function MapaRisco() {
                 width: "10px",
                 height: "10px",
                 borderRadius: "50%",
-                background: getColor(active.tag),
-                boxShadow: `0 0 12px ${getColor(active.tag)}66`,
+                background: P.tags[active.tag],
+                boxShadow: `0 0 12px ${P.tags[active.tag]}66`,
                 flexShrink: 0,
               }} />
               <span style={{
                 fontSize: "22px",
                 fontWeight: 500,
-                color: getColor(active.tag),
+                color: P.tags[active.tag],
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               }}>
                 {active.name}
               </span>
               <span style={{
                 fontSize: "10px",
-                background: `${getColor(active.tag)}18`,
-                border: `1px solid ${getColor(active.tag)}35`,
-                color: getColor(active.tag),
+                background: `${P.tags[active.tag]}18`,
+                border: `1px solid ${P.tags[active.tag]}35`,
+                color: P.tags[active.tag],
                 padding: "3px 10px",
                 borderRadius: "20px",
                 fontFamily: "monospace",
@@ -577,7 +561,7 @@ export default function MapaRisco() {
                 marginLeft: "auto",
                 fontSize: "18px",
                 fontWeight: 600,
-                color: getColor(active.tag),
+                color: P.tags[active.tag],
                 fontFamily: "monospace",
                 opacity: 0.85,
               }}>
@@ -602,8 +586,8 @@ export default function MapaRisco() {
                   key={i}
                   style={{
                     fontSize: "12px",
-                    background: `${PURPLE_MID}10`,
-                    border: `1px solid ${PURPLE_MID}1a`,
+                    background: `${P.purple}10`,
+                    border: `1px solid ${P.purple}1a`,
                     color: "rgba(255,255,255,0.45)",
                     padding: "4px 12px",
                     borderRadius: "6px",
@@ -625,11 +609,12 @@ export default function MapaRisco() {
             right: "12px",
             display: "flex",
             gap: "18px",
+            display: "none",
             opacity: mounted ? 0.85 : 0,
             transition: "opacity 1s 0.5s ease",
           }}
         >
-          {Object.entries(PALETTE).map(([tag, color]) => (
+          {Object.entries(P.tags).map(([tag, color]) => (
             <div key={tag} style={{ display: "flex", alignItems: "center", gap: "5px" }}>
               <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: color, opacity: 0.9 }} />
               <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.45)", fontFamily: "monospace", letterSpacing: "1px" }}>{tag}</span>

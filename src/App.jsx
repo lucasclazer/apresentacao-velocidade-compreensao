@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import * as THREE from "three";
 import MapaRisco from "./components/MapaRisco";
 import CornerParticles from "./components/CornerParticles";
+import { P } from "./palette";
 
 const N = 4000;
 
@@ -454,7 +455,7 @@ export default function App() {
               fontSize: "32px",
               letterSpacing: "6px",
               textTransform: "uppercase",
-              color: "rgba(100,140,255,0.5)",
+              color: P.subtitle,
               marginBottom: "24px",
               fontWeight: 300,
               opacity: 0,
@@ -479,7 +480,7 @@ export default function App() {
           >
             Tudo acelera.
             <br />
-            <em style={{ fontStyle: "normal", color: "rgba(130,165,255,0.9)" }}>
+            <em style={{ fontStyle: "normal", color: P.heroEmphasis }}>
               A compreensão não acompanha.
             </em>
           </h1>
@@ -489,7 +490,7 @@ export default function App() {
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               fontSize: "clamp(12px, 1.2vw, 14px)",
               fontWeight: 300,
-              color: "rgba(255,255,255,0.42)",
+              color: P.textSecondary,
               lineHeight: 1.8,
               marginBottom: "32px",
               opacity: 0,
@@ -507,7 +508,7 @@ export default function App() {
             style={{
               fontFamily: "'Courier New', monospace",
               fontSize: "12px",
-              color: "rgba(130,170,255,0.7)",
+              color: P.typedText,
               letterSpacing: "1.5px",
               display: "flex",
               alignItems: "center",
@@ -524,7 +525,7 @@ export default function App() {
                 display: "inline-block",
                 width: "1.5px",
                 height: "13px",
-                background: "rgba(130,170,255,0.8)",
+                background: P.typedCursor,
                 animation: "blink 1s step-end infinite",
               }}
             />
