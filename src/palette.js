@@ -9,7 +9,7 @@ export const P = {
   // Texto
   textPrimary: "rgba(255,255,255,0.95)",
   textSecondary: "rgba(255,255,255,0.6)",
-  textMuted: "rgba(255,255,255,0.35)",
+  textMuted: "rgba(255,255,255,0.50)",
   textGhost: "rgba(255,255,255,0.06)",
 
   // Hero

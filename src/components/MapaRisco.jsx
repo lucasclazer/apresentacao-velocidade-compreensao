@@ -372,34 +372,34 @@ export default function MapaRisco() {
           <text x={W / 2} y={PAD - 24} textAnchor="middle" fontSize="15" fill={P.accent} opacity={0.7} fontFamily="monospace" letterSpacing="5">
             ALTA COMPREENSÃO
           </text>
-          <text x={W / 2} y={H - PAD + 38} textAnchor="middle" fontSize="15" fill="#ff4466" opacity={0.6} fontFamily="monospace" letterSpacing="5">
+          <text x={W / 2} y={H - PAD + 38} textAnchor="middle" fontSize="15" fill="#ff4466" opacity={0.8} fontFamily="monospace" letterSpacing="5">
             CAIXA PRETA
           </text>
-          <text x={PAD - 32} y={H / 2} textAnchor="middle" fontSize="14" fill={P.highlight} opacity={0.55} fontFamily="monospace" letterSpacing="3" transform={`rotate(-90,${PAD - 32},${H / 2})`}>
+          <text x={PAD - 32} y={H / 2} textAnchor="middle" fontSize="14" fill={P.highlight} opacity={0.75} fontFamily="monospace" letterSpacing="3" transform={`rotate(-90,${PAD - 32},${H / 2})`}>
             LENTO / MANUAL
           </text>
-          <text x={W - PAD + 32} y={H / 2} textAnchor="middle" fontSize="14" fill={P.accent} opacity={0.55} fontFamily="monospace" letterSpacing="3" transform={`rotate(90,${W - PAD + 32},${H / 2})`}>
+          <text x={W - PAD + 32} y={H / 2} textAnchor="middle" fontSize="14" fill={P.accent} opacity={0.75} fontFamily="monospace" letterSpacing="3" transform={`rotate(90,${W - PAD + 32},${H / 2})`}>
             AUTOMATIZADO / RÁPIDO
           </text>
 
           {/* Quadrant labels — brighter base, even brighter on hover */}
           <text x={toX(-0.5)} y={toY(0.6)} textAnchor="middle" fontSize="14" fill={P.highlight}
-            opacity={hoveredQuad === "tl" ? 0.55 : 0.25} fontFamily="monospace" letterSpacing="2"
+            opacity={hoveredQuad === "tl" ? 0.75 : 0.40} fontFamily="monospace" letterSpacing="2"
             style={{ transition: "opacity 0.5s ease", pointerEvents: "none" }}>
             Seguro, mas lento
           </text>
           <text x={toX(0.5)} y={toY(0.6)} textAnchor="middle" fontSize="14" fill={P.accent}
-            opacity={hoveredQuad === "tr" ? 0.6 : 0.3} fontFamily="monospace" letterSpacing="2"
+            opacity={hoveredQuad === "tr" ? 0.75 : 0.40} fontFamily="monospace" letterSpacing="2"
             style={{ transition: "opacity 0.5s ease", pointerEvents: "none" }}>
             Zona ideal
           </text>
           <text x={toX(0.5)} y={toY(-0.65)} textAnchor="middle" fontSize="14" fill="#ff4466"
-            opacity={hoveredQuad === "br" ? 0.55 : 0.25} fontFamily="monospace" letterSpacing="2"
+            opacity={hoveredQuad === "br" ? 0.75 : 0.40} fontFamily="monospace" letterSpacing="2"
             style={{ transition: "opacity 0.5s ease", pointerEvents: "none" }}>
             Zona caixa preta
           </text>
           <text x={toX(-0.5)} y={toY(-0.65)} textAnchor="middle" fontSize="14" fill="rgba(255,255,255,0.6)"
-            opacity={hoveredQuad === "bl" ? 0.5 : 0.15} fontFamily="monospace" letterSpacing="2"
+            opacity={hoveredQuad === "bl" ? 0.65 : 0.30} fontFamily="monospace" letterSpacing="2"
             style={{ transition: "opacity 0.5s ease", pointerEvents: "none" }}>
             Lento e perdido
           </text>
@@ -571,7 +571,7 @@ export default function MapaRisco() {
 
             <p style={{
               fontSize: "15px",
-              color: "rgba(255,255,255,0.55)",
+              color: "rgba(255,255,255,0.65)",
               margin: "0 0 14px",
               lineHeight: 1.7,
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
@@ -588,7 +588,7 @@ export default function MapaRisco() {
                     fontSize: "12px",
                     background: `${P.purple}10`,
                     border: `1px solid ${P.purple}1a`,
-                    color: "rgba(255,255,255,0.45)",
+                    color: "rgba(255,255,255,0.55)",
                     padding: "4px 12px",
                     borderRadius: "6px",
                     fontFamily: "monospace",
